@@ -13,6 +13,7 @@ import { LoginComponent } from "./components/layout/login/login.component";
 import { HomeComponent } from "./components/layout/home/home.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ApplicantComponent } from "./components/layout/applicant/applicant.component";
+import { NgbdModalContentComponent } from "./components/layout/ngbd-modal-content/ngbd-modal-content.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ApplicantComponent } from "./components/layout/applicant/applicant.comp
     HeaderComponent,
     LoginComponent,
     HomeComponent,
-    ApplicantComponent
+    ApplicantComponent,
+    NgbdModalContentComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { ApplicantComponent } from "./components/layout/applicant/applicant.comp
     NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NgbdModalContentComponent]
 })
 export class AppModule {}

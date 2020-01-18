@@ -46,43 +46,48 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.userLoginForm.invalid) {
-      this.showToaster();
+      this.showToaster("UserName or Password can't be emtpy!");
       return;
     }
-    this.adminLogin();
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.adminLogin();
+    }, 3000);
+
+    // this.adminLogin();
   }
 
   adminLogin() {
-    this.router.navigate(["applicant"]);
     // this.spinner.show();
-    // this.loginModel = new LoginModel(
-    //   this.f.user_name.value,
-    //   this.f.password.value
-    // );
+    this.loginModel = new LoginModel(
+      this.f.user_name.value,
+      this.f.password.value
+    );
 
-    // this.loginService.adminLogin(this.loginModel).subscribe(
-    //   response => {
-    //     this.spinner.hide();
-    //     this.successModel = response;
-    //     if (this.successModel.success) {
-    //       console.log("success");
-    //     } else {
-    //       console.log("failed");
-    //       // this.router.navigate(["notfound"]);
-    //     }
-    //   },
-    //   er => {
-    //     this.spinner.hide();
-    //     console.log("== get user order error " + er);
-    //     //todo failed handle and show message
-    //     // this.router.navigate(["notfound"]);
-    //   }
-    // );
+    this.loginService.adminLogin(this.loginModel).subscribe(
+      response => {
+        this.spinner.hide();
+        this.successModel = response;
+        if (this.successModel.success) {
+          console.log("success");
+          this.router.navigate(["applicant"]);
+        } else {
+          console.log("failed");
+          this.showToaster("Invalid userName or password!");
+        }
+      },
+      er => {
+        this.spinner.hide();
+        console.log("== Login failed " + er);
+        this.showToaster("Login faield " + er);
+      }
+    );
   }
 
-  showToaster() {
+  showToaster(msg: string) {
     // this.toastr.success("Hello, I'm the toastr message.");
-    this.toastr.error("UserName or Password can't be emtpy!", "Error", {
+    this.toastr.error(msg, "Error", {
       timeOut: 3000
     });
   }

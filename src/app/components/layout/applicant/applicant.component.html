@@ -30,14 +30,14 @@
                 style="margin-right: 10px">View Profile</button>
               <button (click)="confirm(applicant)" type="button" class="btn btn-success"
                 style="margin-right: 10px">Confirm</button>
-              <button (click)="decline(applicant)" type="button" class="btn btn-danger">Rejected</button>
+              <button (click)="decline(applicant)" type="button" class="btn btn-danger">Reject</button>
             </span>
             <span *ngIf="applicant.hr_confirm_status === ''">
               <button (click)="viewProfile(applicant)" type="button" class="btn btn-primary"
                 style="margin-right: 10px">View Profile</button>
               <button (click)="confirm(applicant)" type="button" class="btn btn-success"
                 style="margin-right: 10px">Confirm</button>
-              <button (click)="decline(applicant)" type="button" class="btn btn-danger">Rejected</button>
+              <button (click)="decline(applicant)" type="button" class="btn btn-danger">Reject</button>
             </span>
           </td>
         </tr>

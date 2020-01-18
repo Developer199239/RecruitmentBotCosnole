@@ -6,9 +6,10 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { ApplicantModel } from "src/app/models/ApplicantModel";
 import { ThrowStmt } from "@angular/compiler";
 import { ToastrService } from "ngx-toastr";
-import { ConfrimReqModel } from "src/app/models/confrimReqModel";
+import { ConfrimReqModel } from "src/app/models/ConfrimReqModel";
 import { SuccessModel } from "src/app/models/SuccessModel";
 import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbdModalContentComponent } from "../ngbd-modal-content/ngbd-modal-content.component";
 
 @Component({
   selector: "app-applicant",
@@ -30,8 +31,22 @@ export class ApplicantComponent implements OnInit {
     this.getAllApplicant();
   }
 
+  open(applicantInfo) {
+    const modalRef = this.modalService.open(NgbdModalContentComponent);
+    modalRef.componentInstance.name = applicantInfo.name;
+    modalRef.componentInstance.email = applicantInfo.email;
+    modalRef.componentInstance.phone = applicantInfo.phone;
+    modalRef.componentInstance.job_position = applicantInfo.job_position;
+    modalRef.componentInstance.job_location = applicantInfo.job_location;
+    modalRef.componentInstance.country = applicantInfo.country;
+    modalRef.componentInstance.experience = applicantInfo.experience;
+    modalRef.componentInstance.travel_percentage =
+      applicantInfo.travel_percentage;
+  }
+
   viewProfile(applicantInfo) {
     // const modalRef = this.modalService.open(NgbdModalContent);
+    this.open(applicantInfo);
   }
 
   confirm(applicantInfo) {
