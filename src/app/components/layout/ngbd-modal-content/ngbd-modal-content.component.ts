@@ -43,7 +43,15 @@ export class NgbdModalContentComponent {
   // ngOnInit() {
   // }
 
+
   @Input() name;
+  @Input() email;
+  @Input() job_position;
+  @Input() phone;
+  @Input() job_location;
+  @Input() country;
+  @Input() experience;
+  @Input() travel_percentage;
 
   constructor(public activeModal: NgbActiveModal) {}
 }
