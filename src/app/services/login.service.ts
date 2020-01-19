@@ -12,7 +12,7 @@ import { ApplicantModel } from "../models/ApplicantModel";
   providedIn: "root"
 })
 export class LoginService {
-  baseUrl = "http://127.0.0.1:5000/";
+  baseUrl = "https://recruitment-bot-api.herokuapp.com/";
   constructor(private http: HttpClient) {}
 
   public adminLogin(obj): Observable<SuccessModel> {
