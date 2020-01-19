@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   userLoginForm: FormGroup;
   loginModel: LoginModel;
   successModel: SuccessModel;
+  submitted = false;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
     if (this.userLoginForm.invalid) {
       this.showToaster("UserName or Password can't be emtpy!");
       return;
