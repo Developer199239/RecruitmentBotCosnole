@@ -52,12 +52,12 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.spinner.show();
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.adminLogin();
-    }, 3000);
+    // setTimeout(() => {
+    //   /** spinner ends after 5 seconds */
+    //   this.adminLogin();
+    // }, 3000);
 
-    // this.adminLogin();
+    this.adminLogin();
   }
 
   adminLogin() {
