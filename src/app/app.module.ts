@@ -14,6 +14,7 @@ import { HomeComponent } from "./components/layout/home/home.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ApplicantComponent } from "./components/layout/applicant/applicant.component";
 import { NgbdModalContentComponent } from "./components/layout/ngbd-modal-content/ngbd-modal-content.component";
+import { AboutUsComponent } from './components/layout/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgbdModalContentComponent } from "./components/layout/ngbd-modal-conten
     LoginComponent,
     HomeComponent,
     ApplicantComponent,
-    NgbdModalContentComponent
+    NgbdModalContentComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
