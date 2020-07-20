@@ -12,7 +12,8 @@ import { ApplicantModel } from "../models/ApplicantModel";
   providedIn: "root"
 })
 export class LoginService {
-  baseUrl = "https://recruitment-bot-api.herokuapp.com/";
+  // baseUrl = "https://recruitment-bot-api.herokuapp.com/";
+  baseUrl = "https://65e8645104ec.ngrok.io/";
   constructor(private http: HttpClient) {}
 
   public adminLogin(obj): Observable<SuccessModel> {
